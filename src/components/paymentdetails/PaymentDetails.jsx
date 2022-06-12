@@ -9,6 +9,7 @@ const PaymentDetails = ({ cardNumber }) => {
   const payUp = () => {
     if (cardNumber === '0000 0000 0000 0000') {
       alert('Card details invalid');
+      return
     }
     alert('Payment success');
   };
