@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,600;1,400&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+  font-family: 'Poppins', sans-serif;
+}
+
+.appContainer {
+  max-width: 1200px;
+  padding: 1rem;
+  margin: auto;
+
+  @media (min-width: 768px) {
+    padding: 2rem;
+  }
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
+}
+
+main {
+  margin-top: 3rem;
+  margin: 3rem 0.5rem 0;
+  padding: 1rem 0 2rem;
+  border-top: 2px solid whitesmoke;
+}

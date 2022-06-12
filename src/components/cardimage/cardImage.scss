@@ -1,0 +1,157 @@
+@import '../others/variables';
+
+.cardContainer {
+  display: grid;
+  gap: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid whitesmoke;
+
+  @media (min-width: 992px) {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+
+  .cardImage {
+    max-width: 500px;
+    display: grid;
+    gap: 0.8rem;
+    background: linear-gradient(50deg, rgb(235, 48, 48), rgb(83, 83, 226));
+    color: white;
+    border-radius: 7px;
+    padding: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    position: relative;
+
+    p {
+      font-size: 0.8rem;
+      font-weight: bold;
+    }
+
+    img {
+      width: 70px;
+      height: 55px;
+      mix-blend-mode: darken;
+    }
+
+    .mastercard {
+      position: absolute;
+      bottom: 25px;
+      right: 60px;
+      width: 80px;
+      height: 50px;
+    }
+
+    h4 {
+      font-size: 1.05rem;
+      letter-spacing: 3px;
+    }
+
+    h5 {
+      text-transform: capitalize;
+      letter-spacing: 1px;
+      font-size: 0.95rem;
+    }
+  }
+
+  .cardForm {
+    form {
+      display: grid;
+      gap: 1.5rem 1rem;
+
+      @media (min-width: 576px) {
+        gap: 1.5rem;
+        grid-template-columns: 1fr 1fr;
+      }
+      div {
+        label {
+          display: block;
+          margin-bottom: 0.75rem;
+        }
+
+        input[type='text'] {
+          padding: 0.9rem;
+          font-size: 0.95rem;
+          border-radius: 5px;
+          border: 2px solid rgba(199, 196, 196, 0.4);
+          background: rgba(229, 231, 231, 0.8);
+          width: 100%;
+
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+
+      .useOften {
+        grid-column: span 2;
+        position: relative;
+        cursor: pointer;
+
+        input {
+          position: absolute;
+          opacity: 0;
+          cursor: pointer;
+          height: 1.25rem;
+          width: 1.25rem;
+        }
+
+        span {
+          position: absolute;
+          top: 0;
+          left: 0;
+          @include flex-center();
+          z-index: -1;
+          height: 1.25rem;
+          width: 1.25rem;
+          background: rgb(177, 179, 179);
+          border-radius: 50%;
+
+          &:after {
+            content: '';
+            position: absolute;
+            display: none;
+          }
+        }
+
+        & input:checked ~ span {
+          background: rgb(20, 20, 243);
+        }
+
+        & input:checked ~ span:after {
+          display: inline-block;
+        }
+
+        & span:after {
+          border: solid white;
+          border-radius: 50%;
+        }
+
+        label {
+          display: inline;
+          margin-left: 2rem;
+        }
+      }
+
+      button {
+        background: rgb(20, 20, 243);
+        border-color: transparent;
+        padding: 1rem 1.5rem;
+        width: 100%;
+        display: block;
+        grid-column: span 2;
+        color: white;
+        font-size: 1.1rem;
+        letter-spacing: 1px;
+        border-radius: 5px;
+        cursor: pointer;
+
+        &:hover {
+          color: rgb(20, 20, 243);
+          background: rgba(229, 231, 231, 0.8);
+          border-color: rgb(20, 20, 243);
+        }
+      }
+    }
+  }
+}
