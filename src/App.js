@@ -2,6 +2,8 @@ import './App.scss';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Header from './components/header/Header';
 import Payment from './components/Payment';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
@@ -10,6 +12,7 @@ function App() {
         <Header />
         <Payment />
       </div>
+      <ToastContainer position="top-left" autoClose={3000} limit={2} />
     </Router>
   );
 }

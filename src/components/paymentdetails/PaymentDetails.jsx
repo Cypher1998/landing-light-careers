@@ -1,4 +1,5 @@
 import './paymentdetails.scss';
+import { toast } from 'react-toastify';
 
 const PaymentDetails = ({ cardNumber }) => {
   const subTotal = 2497,
@@ -7,11 +8,11 @@ const PaymentDetails = ({ cardNumber }) => {
     totalAmount = subTotal + tax - promoCode;
 
   const payUp = () => {
-    if (cardNumber === '0000 0000 0000 0000') {
-      alert('Card details invalid');
-      return
+    if (cardNumber === '0000 0000 0000 0000' || '') {
+      toast.error('Invalid card details!');
+      return;
     }
-    alert('Payment success');
+    toast.success('Payment success!');
   };
 
   return (

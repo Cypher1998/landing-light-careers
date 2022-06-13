@@ -3,6 +3,7 @@ import masterLogo from '../../assets/mastercard.png';
 import './cardImage.scss';
 import { useState } from 'react';
 import PaymentDetails from '../paymentdetails/PaymentDetails';
+import { toast } from 'react-toastify';
 
 const CardImage = () => {
   const [cardInfo, setCardInfo] = useState({
@@ -64,13 +65,13 @@ const CardImage = () => {
       expiryDateText === '' ||
       securityCodeText === ''
     ) {
-      alert('Please fill all fields');
+      toast.error('Please fill all fields');
       return;
     } else if (
       cardNumberText.length !== 19 ||
       cardNumberText === '0000 0000 0000 0000'
     ) {
-      alert('Invalid card number');
+      toast.error('Invalid card number');
       return;
     }
 
@@ -80,8 +81,7 @@ const CardImage = () => {
       cardNumber: cardNumberText,
       expiryDate: expiryDateText,
     });
-
-    alert('Card details added successfully');
+    toast.success('Card details added successfully');
 
     setTimeout(() => {
       setFormData({
@@ -129,7 +129,7 @@ const CardImage = () => {
                 value={expiryDateText}
                 onChange={handleChange}
                 maxLength={5}
-                placeholder="00/00"
+                placeholder="00/00 month (01-12) year (22-26)"
                 pattern="(0[1-9]|1[0-2])\/?(2[2-6]{1})"
               />
             </div>
